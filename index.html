@@ -103,6 +103,8 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   內部預覽：而家睇緊 <b id="rvName">A 版</b>
   <button type="button" data-v="a" aria-pressed="true">A 借方版</button>
   <button type="button" data-v="b" aria-pressed="false">B 債主版</button>
+  <button type="button" data-v="c" aria-pressed="false">C 合約版</button>
+  <button type="button" data-v="d" aria-pressed="false">D 夾錢版</button>
 </div>
 
 <div class="wrap">
@@ -157,6 +159,53 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
     </div>
   </section>
 
+  <!-- Variant C: playful friend contract + check-in -->
+  <section class="hero" data-variant="c" hidden>
+    <div>
+      <div class="eyebrow">借錢畀朋友？</div>
+      <h1>一份<em>搞笑</em>合約，<br>友情同錢都保住。</h1>
+      <p class="sub">借錢嗰陣一齊簽一份朋友版合約：遲還就叫你大佬、請你食飯。借方每星期 check-in 報平安，唔會突然消失。</p>
+      <button class="cta" type="button" data-cta>簽一份朋友合約 →</button>
+      <div class="fine">免費 · 唔經手你啲錢 · 唔收利息</div>
+    </div>
+    <div class="card" aria-label="朋友合約示例">
+      <div class="top"><span>朋友合約（示例）</span><span>阿明 × 阿傑</span></div>
+      <div class="amt">HK$8,000</div>
+      <div class="rows">
+        <div class="row"><b>逾期一日</b><span>叫阿明一聲「大佬」</span></div>
+        <div class="row"><b>遲一個月</b><span>請阿明食一餐壽司</span></div>
+        <div class="row"><b>每星期日</b><span>阿傑 check-in 報平安</span></div>
+      </div>
+      <div class="notif" style="margin-top:14px">
+        <div class="ic">✓</div>
+        <p><b>阿傑今日 check-in 咗</b><br>「仲喺度，下期照還」<br><small>已連續 6 星期 check-in</small></p>
+      </div>
+      <div class="btns"><span class="y">簽名</span><span class="n">改條款</span></div>
+    </div>
+  </section>
+
+  <!-- Variant D: group expense splitting entry -->
+  <section class="hero" data-variant="d" hidden>
+    <div>
+      <div class="eyebrow">成日幫朋友墊錢？</div>
+      <h1>夾錢墊錢，<br><em>一撳</em>就計清。</h1>
+      <p class="sub">食飯、送禮、代買飛，講好數幫你分好數，連埋轉數快連結發畀朋友。唔使再喺 WhatsApp 一個個追。</p>
+      <button class="cta" type="button" data-cta>開一單夾錢 →</button>
+      <div class="fine">免費 · 唔經手你啲錢 · 唔收手續費</div>
+    </div>
+    <div class="card" aria-label="夾錢示例">
+      <div class="top"><span>夾錢（示例）</span><span>星期五打邊爐</span></div>
+      <div class="amt">HK$1,840</div>
+      <div class="rows">
+        <div class="row"><b>分法</b><span>4 人，每人 HK$460</span></div>
+        <div class="row"><b>阿明</b><span>已還 ✓</span></div>
+        <div class="row"><b>阿傑</b><span>已還 ✓</span></div>
+        <div class="row"><b>阿詩</b><span>未還 · 今朝已提醒</span></div>
+      </div>
+      <div class="btns"><span class="y">用轉數快收</span><span class="n">再提一次</span></div>
+    </div>
+  </section>
+
   <section class="points">
     <div class="pt" data-variant="a"><div class="no">01</div><h4>講清楚先開口</h4><p>金額、用途、還款計劃一次過寫低，朋友唔使估，你都唔使尷尬。</p></div>
     <div class="pt" data-variant="a"><div class="no">02</div><h4>自己設定提醒</h4><p>由你決定幾時提自己還錢，守信由自己做起，唔使朋友追。</p></div>
@@ -164,6 +213,12 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
     <div class="pt" data-variant="b" hidden><div class="no">01</div><h4>講好咗先借</h4><p>借之前一齊定好金額同還款日，借定送都講明，唔會有灰色地帶。</p></div>
     <div class="pt" data-variant="b" hidden><div class="no">02</div><h4>到期自動提醒</h4><p>由講好數用溫和語氣提對方，你唔使親自開口。</p></div>
     <div class="pt" data-variant="b" hidden><div class="no">03</div><h4>還幾多記幾多</h4><p>每期還款雙方確認，進度一目了然，唔使翻 WhatsApp 對數。</p></div>
+    <div class="pt" data-variant="c" hidden><div class="no">01</div><h4>朋友語氣嘅條款</h4><p>唔使律師字眼，後果由你哋自己定：請食飯、叫大佬、幫手搬屋都得。</p></div>
+    <div class="pt" data-variant="c" hidden><div class="no">02</div><h4>每星期報平安</h4><p>借方撳一下 check-in，話你知佢仲喺度。連續冇 check-in，就會私下通知你。</p></div>
+    <div class="pt" data-variant="c" hidden><div class="no">03</div><h4>還清一齊慶祝</h4><p>每期還款雙方確認；還清嗰日，出一張「準時還清」證書畀你哋分享。</p></div>
+    <div class="pt" data-variant="d" hidden><div class="no">01</div><h4>一撳分好數</h4><p>平均分、按項目分、有人請客都得，即刻計清每人要畀幾多。</p></div>
+    <div class="pt" data-variant="d" hidden><div class="no">02</div><h4>附轉數快連結</h4><p>朋友撳一下就畀到錢，唔使問你電話號碼，亦唔使自己計數。</p></div>
+    <div class="pt" data-variant="d" hidden><div class="no">03</div><h4>代你提醒</h4><p>邊個未畀錢，由講好數溫和咁提佢，你唔使喺群組度追。</p></div>
   </section>
 
   <section class="trust">
@@ -178,6 +233,8 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   <section class="end">
     <h2 data-variant="a">下次開口之前，先講好數。</h2>
     <h2 data-variant="b" hidden>借錢畀朋友，都可以安心。</h2>
+    <h2 data-variant="c" hidden>借錢，都可以借得好玩啲。</h2>
+    <h2 data-variant="d" hidden>夾錢，唔再尷尬。</h2>
     <button class="cta" type="button" data-cta id="cta2">整一份借錢提案 →</button>
   </section>
 
@@ -233,21 +290,23 @@ const FORM = {
   fields: { variant: "", event: "", amount: "", relation: "", contact: "" }
 };
 
-const LABEL = { a: "A 版", b: "B 版" };
+const VARIANTS = ["a", "b", "c", "d"];
+const LABEL = { a: "A 版", b: "B 版", c: "C 版", d: "D 版" };
+const CTA_TEXT = { a: "整一份借錢提案 →", b: "記低邊個欠我錢 →", c: "簽一份朋友合約 →", d: "開一單夾錢 →" };
 let variant = pickVariant();
 let clicked = false;
 
 function pickVariant(){
   const h = (location.hash || "").replace("#", "").toLowerCase();
-  if (h === "a" || h === "b") return h;
-  try { const s = localStorage.getItem("khs_variant"); if (s === "a" || s === "b") return s; } catch(e){}
-  const v = Math.random() < 0.5 ? "a" : "b";
-  try { localStorage.setItem("khs_variant", v); } catch(e){}
+  if (VARIANTS.includes(h)) return h;
+  try { const s = localStorage.getItem("khs_variant4"); if (VARIANTS.includes(s)) return s; } catch(e){}
+  const v = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+  try { localStorage.setItem("khs_variant4", v); } catch(e){}
   return v;
 }
 function applyVariant(){
   document.querySelectorAll("[data-variant]").forEach(el => { el.hidden = el.dataset.variant !== variant; });
-  document.getElementById("cta2").textContent = variant === "a" ? "整一份借錢提案 →" : "記低邊個欠我錢 →";
+  document.getElementById("cta2").textContent = CTA_TEXT[variant];
   document.getElementById("rvName").textContent = LABEL[variant];
   document.querySelectorAll("#review button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === variant)));
 }
@@ -292,7 +351,7 @@ if ((location.hash || "").toLowerCase() === "#review"){
   document.getElementById("review").hidden = false;
   document.querySelectorAll("#review button").forEach(b => b.addEventListener("click", () => { variant = b.dataset.v; applyVariant(); }));
 }
-window.addEventListener("hashchange", () => { const h = location.hash.replace("#",""); if (h === "a" || h === "b"){ variant = h; applyVariant(); } });
+window.addEventListener("hashchange", () => { const h = location.hash.replace("#",""); if (VARIANTS.includes(h)){ variant = h; applyVariant(); } });
 applyVariant();
 </script>
 
