@@ -1,0 +1,299 @@
+<!doctype html><html lang="zh-Hant-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>講好數</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="朋友之間借錢還錢，講好咗先借，唔傷感情。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: mobile-first ad landing — headline + one product card + 3 promises + trust strip; one CTA repeated */
+:root{
+  --bg:#eef3f0; --surface:#ffffff; --ink:#13241f; --muted:#5a6b65; --line:#d3ddd8;
+  --brand:#0f5c4d; --brand-ink:#ffffff; --note:#ffd257; --note-ink:#3a2c00; --soft:#dcebe5;
+  --sans:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1714; --surface:#16221e; --ink:#e6efeb; --muted:#9db0a9; --line:#26362f;
+  --brand:#46c2a2; --brand-ink:#06201a; --note:#ffd257; --note-ink:#3a2c00; --soft:#183029; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1714; --surface:#16221e; --ink:#e6efeb; --muted:#9db0a9; --line:#26362f;
+  --brand:#46c2a2; --brand-ink:#06201a; --note:#ffd257; --note-ink:#3a2c00; --soft:#183029; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{padding-block:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;font-size:20px;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.logo i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--brand);color:var(--brand-ink);font-style:normal;font-size:15px}
+.badge{font-size:12px;font-weight:700;background:var(--note);color:var(--note-ink);padding:3px 10px;border-radius:99px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:28px 48px}
+.hero > div{min-width:0}
+.eyebrow{font-weight:700;color:var(--brand);font-size:14px;letter-spacing:.08em}
+h1{font-size:clamp(34px,8vw,56px);font-weight:900;line-height:1.2;margin:10px 0 16px;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--note) 62%);color:inherit}
+.sub{font-size:18px;color:var(--muted);max-width:30em;margin:0}
+.cta{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:18px;background:var(--brand);color:var(--brand-ink);padding:15px 26px;border-radius:12px;margin-top:26px;display:inline-flex;align-items:center;gap:10px;transition:transform .12s ease}
+.cta:hover{transform:translateY(-1px)}
+.cta:focus-visible,button:focus-visible,input:focus-visible,label:focus-within{outline:3px solid var(--note);outline-offset:2px}
+.fine{font-size:13px;color:var(--muted);margin-top:10px}
+/* product card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 18px 40px -24px rgba(15,60,50,.45);max-width:380px;justify-self:center;width:100%}
+.card .top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.card h3{margin:6px 0 2px;font-size:20px}
+.amt{font-family:var(--mono);font-size:38px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--brand);line-height:1.2}
+.rows{display:grid;gap:10px;margin-top:14px}
+.row{display:grid;grid-template-columns:5.5em 1fr;gap:8px;font-size:14.5px;border-top:1px dashed var(--line);padding-top:10px}
+.row b{color:var(--muted);font-weight:500}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.btns span{text-align:center;padding:10px;border-radius:10px;font-weight:700;font-size:15px}
+.btns .y{background:var(--brand);color:var(--brand-ink)}
+.btns .n{background:var(--soft);color:var(--ink)}
+.notif{display:grid;grid-template-columns:36px 1fr;gap:12px;background:var(--soft);border-radius:14px;padding:12px;margin-top:4px}
+.notif .ic{width:36px;height:36px;border-radius:9px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-weight:900}
+.notif p{margin:0;font-size:14.5px}
+.notif small{color:var(--muted)}
+.prog{margin-top:16px}
+.bar{height:10px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bar span{display:block;height:100%;width:25%;background:var(--brand);border-radius:99px}
+.prog .lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
+/* promises */
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-block:8px 48px}
+.pt{background:var(--surface);border-radius:14px;padding:20px;border:1px solid var(--line)}
+.pt .no{font-family:var(--mono);color:var(--brand);font-weight:600;font-size:14px}
+.pt h4{margin:6px 0 6px;font-size:18px}
+.pt p{margin:0;color:var(--muted);font-size:15px}
+.trust{background:var(--brand);color:var(--brand-ink);border-radius:18px;padding:26px;margin-bottom:40px}
+.trust h2{margin:0 0 12px;font-size:22px}
+.trust ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.trust li{font-size:15px;line-height:1.6}
+.trust li b{display:block;font-size:17px}
+.end{text-align:center;padding-block:10px 56px}
+.end h2{font-size:26px;margin:0}
+footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;color:var(--muted)}
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(5,20,16,.55);display:grid;align-items:end;justify-items:center;z-index:20;padding-top:env(safe-area-inset-top,0px)}
+.sheet{background:var(--surface);color:var(--ink);width:100%;max-width:520px;max-height:92vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:22px max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+@media (min-width:640px){.scrim{align-items:center}.sheet{border-radius:20px}}
+.sheet h2{margin:0;font-size:22px}
+.sheet .x{float:right;appearance:none;border:0;background:var(--soft);color:var(--ink);width:34px;height:34px;border-radius:99px;font-size:18px;cursor:pointer}
+.q{margin-top:18px}
+.q > span{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label span{display:inline-block;padding:7px 14px;border-radius:99px;border:1px solid var(--line);font-size:14.5px}
+.chips input:checked + span{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.txt{width:100%;font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.agree{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:13px;color:var(--muted);margin-top:16px;align-items:start}
+.agree input{width:18px;height:18px;margin-top:3px;accent-color:var(--brand)}
+.err{color:#c0392b;font-size:14px;margin-top:10px;min-height:1em}
+.sheet .cta{width:100%;justify-content:center;margin-top:14px}
+.done{text-align:center;padding-block:20px}
+.done .big{font-size:44px}
+/* review bar (internal only, #review) */
+.review{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--note);color:var(--note-ink);font-size:14px;display:flex;gap:10px;align-items:center;justify-content:center;padding:8px 16px;flex-wrap:wrap}
+.review button{font:inherit;font-weight:700;border:1px solid var(--note-ink);background:transparent;color:inherit;border-radius:99px;padding:3px 12px;cursor:pointer}
+.review button[aria-pressed="true"]{background:var(--note-ink);color:var(--note)}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:28px;padding-block:12px 36px}
+  .points,.trust ul{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.cta{transition:none}}
+</style>
+
+<div class="review" id="review" hidden>
+  內部預覽：而家睇緊 <b id="rvName">A 版</b>
+  <button type="button" data-v="a" aria-pressed="true">A 借方版</button>
+  <button type="button" data-v="b" aria-pressed="false">B 債主版</button>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="logo"><i>數</i>講好數</div>
+    <span class="badge">開發中 · 登記搶先試</span>
+  </header>
+
+  <!-- Variant A: borrower-initiated proposal -->
+  <section class="hero" data-variant="a">
+    <div>
+      <div class="eyebrow">要向朋友借錢？</div>
+      <h1>開口借錢，<br>用<em>誠意</em>講好數。</h1>
+      <p class="sub">寫低借幾多、用嚟做咩、幾時還，整一份借錢提案發畀朋友。佢睇得清楚，借得安心；你亦唔使吞吞吐吐。</p>
+      <button class="cta" type="button" data-cta>整一份借錢提案 →</button>
+      <div class="fine">免費 · 唔經手你啲錢 · 唔收利息</div>
+    </div>
+    <div class="card" aria-label="借錢提案示例">
+      <div class="top"><span>借錢提案（示例）</span><span>阿傑 → 阿明</span></div>
+      <div class="amt">HK$8,000</div>
+      <div class="rows">
+        <div class="row"><b>用途</b><span>新屋按金，下個月出糧前周轉</span></div>
+        <div class="row"><b>點樣還</b><span>每月 HK$2,000，分 4 期（12 月至 3 月）</span></div>
+        <div class="row"><b>提醒</b><span>每期到期前 3 日提我自己</span></div>
+        <div class="row"><b>還唔到</b><span>提早一星期講，再傾新計劃</span></div>
+      </div>
+      <div class="btns"><span class="y">好，借畀你</span><span class="n">傾吓先</span></div>
+    </div>
+  </section>
+
+  <!-- Variant B: lender-side reminder -->
+  <section class="hero" data-variant="b" hidden>
+    <div>
+      <div class="eyebrow">朋友欠你錢？</div>
+      <h1>朋友欠錢，<br><em>唔使你</em>做醜人。</h1>
+      <p class="sub">借之前一齊講好還款日期，到期由講好數溫馨提醒對方。你唔使開口追，友情都唔使賭。</p>
+      <button class="cta" type="button" data-cta>記低邊個欠我錢 →</button>
+      <div class="fine">免費 · 唔經手你啲錢 · 唔收利息</div>
+    </div>
+    <div class="card" aria-label="還款提醒示例">
+      <div class="top"><span>阿明借畀阿傑（示例）</span><span>講好咗</span></div>
+      <div class="amt">HK$8,000</div>
+      <div class="notif">
+        <div class="ic">數</div>
+        <p><b>溫馨提醒阿傑</b><br>第 2 期 HK$2,000 下星期一到期，用轉數快還就得。<br><small>由講好數代阿明提你</small></p>
+      </div>
+      <div class="prog">
+        <div class="bar"><span></span></div>
+        <div class="lbl"><span>已還 HK$2,000</span><span>1 / 4 期</span></div>
+      </div>
+      <div class="btns"><span class="y">已收到</span><span class="n">改還款日</span></div>
+    </div>
+  </section>
+
+  <section class="points">
+    <div class="pt" data-variant="a"><div class="no">01</div><h4>講清楚先開口</h4><p>金額、用途、還款計劃一次過寫低，朋友唔使估，你都唔使尷尬。</p></div>
+    <div class="pt" data-variant="a"><div class="no">02</div><h4>自己設定提醒</h4><p>由你決定幾時提自己還錢，守信由自己做起，唔使朋友追。</p></div>
+    <div class="pt" data-variant="a"><div class="no">03</div><h4>還款雙方確認</h4><p>每還一期，雙方都撳一下確認，邊個都唔會記錯數。</p></div>
+    <div class="pt" data-variant="b" hidden><div class="no">01</div><h4>講好咗先借</h4><p>借之前一齊定好金額同還款日，借定送都講明，唔會有灰色地帶。</p></div>
+    <div class="pt" data-variant="b" hidden><div class="no">02</div><h4>到期自動提醒</h4><p>由講好數用溫和語氣提對方，你唔使親自開口。</p></div>
+    <div class="pt" data-variant="b" hidden><div class="no">03</div><h4>還幾多記幾多</h4><p>每期還款雙方確認，進度一目了然，唔使翻 WhatsApp 對數。</p></div>
+  </section>
+
+  <section class="trust">
+    <h2>講好數唔係借貸平台</h2>
+    <ul>
+      <li><b>唔經手你啲錢</b>借錢還錢照用轉數快或者 PayMe，我哋只係幫你記低同提醒。</li>
+      <li><b>唔收利息</b>朋友之間講人情，唔係做生意。</li>
+      <li><b>只限你識嘅人</b>唔會配對陌生人，亦唔會公開任何人欠錢。</li>
+    </ul>
+  </section>
+
+  <section class="end">
+    <h2 data-variant="a">下次開口之前，先講好數。</h2>
+    <h2 data-variant="b" hidden>借錢畀朋友，都可以安心。</h2>
+    <button class="cta" type="button" data-cta id="cta2">整一份借錢提案 →</button>
+  </section>
+
+  <footer>© 講好數 · 產品開發中，暫未推出。登記資料只用嚟通知試用同做產品研究。</footer>
+</div>
+
+<div class="scrim" id="scrim" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
+    <button class="x" type="button" id="close" aria-label="關閉">×</button>
+    <form id="form" novalidate>
+      <h2 id="shTitle">多謝你有興趣！</h2>
+      <p style="color:var(--muted);margin:6px 0 0">講好數仲開發緊，未正式推出。留低聯絡，第一批試用就搵你。</p>
+      <div class="q">
+        <span>你通常借（或者問人借）幾多錢？</span>
+        <div class="chips">
+          <label><input type="radio" name="amount" id="am1" value="1千以下"><span>$1,000 以下</span></label>
+          <label><input type="radio" name="amount" id="am2" value="1千至1萬"><span>$1,000–10,000</span></label>
+          <label><input type="radio" name="amount" id="am3" value="1萬至7.5萬"><span>$10,000–75,000</span></label>
+          <label><input type="radio" name="amount" id="am4" value="7.5萬以上"><span>$75,000 以上</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span>通常同對方係咩關係？</span>
+        <div class="chips">
+          <label><input type="radio" name="relation" id="rl1" value="屋企人"><span>屋企人</span></label>
+          <label><input type="radio" name="relation" id="rl2" value="好朋友"><span>好朋友</span></label>
+          <label><input type="radio" name="relation" id="rl3" value="普通朋友或同事"><span>普通朋友／同事</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span><label for="contact">Email 或者 WhatsApp 號碼</label></span>
+        <input class="txt" id="contact" name="contact" autocomplete="email" placeholder="例如 name@email.com 或 9123 4567">
+      </div>
+      <label class="agree"><input type="checkbox" id="agree"><span>我同意講好數用以上資料通知我試用同做產品研究。資料唔會轉交第三方，我可以隨時要求查閱或者刪除。</span></label>
+      <div class="err" id="err" role="alert"></div>
+      <button class="cta" type="submit" id="submit">登記搶先試</button>
+    </form>
+    <div class="done" id="done" hidden>
+      <div class="big">🤝</div>
+      <h2>登記好咗！</h2>
+      <p style="color:var(--muted)">推出試用版嘅時候，我哋會第一時間通知你。</p>
+      <button class="cta" type="button" id="close2">返回</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== 設定：連接 Google 表單（未填就係示範模式，唔會送出資料） =====
+   action: 表單嘅 formResponse 網址
+   每個欄位填 Google 表單嘅 entry.xxxx 編號 */
+const FORM = {
+  action: "",
+  fields: { variant: "", event: "", amount: "", relation: "", contact: "" }
+};
+
+const LABEL = { a: "A 版", b: "B 版" };
+let variant = pickVariant();
+let clicked = false;
+
+function pickVariant(){
+  const h = (location.hash || "").replace("#", "").toLowerCase();
+  if (h === "a" || h === "b") return h;
+  try { const s = localStorage.getItem("khs_variant"); if (s === "a" || s === "b") return s; } catch(e){}
+  const v = Math.random() < 0.5 ? "a" : "b";
+  try { localStorage.setItem("khs_variant", v); } catch(e){}
+  return v;
+}
+function applyVariant(){
+  document.querySelectorAll("[data-variant]").forEach(el => { el.hidden = el.dataset.variant !== variant; });
+  document.getElementById("cta2").textContent = variant === "a" ? "整一份借錢提案 →" : "記低邊個欠我錢 →";
+  document.getElementById("rvName").textContent = LABEL[variant];
+  document.querySelectorAll("#review button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === variant)));
+}
+function send(data){
+  if (!FORM.action) return Promise.resolve(false);
+  const fd = new FormData();
+  for (const k in data){ if (FORM.fields[k]) fd.append(FORM.fields[k], data[k]); }
+  return fetch(FORM.action, { method: "POST", mode: "no-cors", body: fd }).then(() => true).catch(() => false);
+}
+
+const scrim = document.getElementById("scrim");
+const form = document.getElementById("form");
+const done = document.getElementById("done");
+const err = document.getElementById("err");
+function openSheet(){
+  scrim.hidden = false; form.hidden = false; done.hidden = true; err.textContent = "";
+  document.getElementById("close").focus();
+  if (!clicked){ clicked = true; send({ variant, event: "click" }); }
+}
+function closeSheet(){ scrim.hidden = true; }
+document.querySelectorAll("[data-cta]").forEach(b => b.addEventListener("click", openSheet));
+document.getElementById("close").addEventListener("click", closeSheet);
+document.getElementById("close2").addEventListener("click", closeSheet);
+scrim.addEventListener("click", e => { if (e.target === scrim) closeSheet(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !scrim.hidden) closeSheet(); });
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const contact = document.getElementById("contact").value.trim();
+  const okContact = /\S+@\S+\.\S+/.test(contact) || /^[\d\s+\-]{8,}$/.test(contact);
+  if (!okContact){ err.textContent = "請填一個有效嘅 Email 或者 8 位電話號碼。"; return; }
+  if (!document.getElementById("agree").checked){ err.textContent = "請剔選同意，我哋先可以通知你。"; return; }
+  const pick = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || "";
+  const btn = document.getElementById("submit");
+  btn.disabled = true; btn.textContent = "登記緊…";
+  send({ variant, event: "signup", amount: pick("amount"), relation: pick("relation"), contact }).then(() => {
+    form.hidden = true; done.hidden = false; btn.disabled = false; btn.textContent = "登記搶先試";
+  });
+});
+
+if ((location.hash || "").toLowerCase() === "#review"){
+  document.getElementById("review").hidden = false;
+  document.querySelectorAll("#review button").forEach(b => b.addEventListener("click", () => { variant = b.dataset.v; applyVariant(); }));
+}
+window.addEventListener("hashchange", () => { const h = location.hash.replace("#",""); if (h === "a" || h === "b"){ variant = h; applyVariant(); } });
+applyVariant();
+</script>
+
+</body></html>
