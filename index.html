@@ -18,6 +18,13 @@
   --bg:#0e1714; --surface:#16221e; --ink:#e6efeb; --muted:#9db0a9; --line:#26362f;
   --brand:#46c2a2; --brand-ink:#06201a; --note:#ffd257; --note-ink:#3a2c00; --soft:#183029; color-scheme:dark}
 *{box-sizing:border-box}
+::selection{background:var(--note);color:var(--note-ink)}
+html{scrollbar-color:var(--line) var(--bg);caret-color:var(--brand)}
+svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.arr{width:20px;height:20px;flex:none}
+.chk{width:1em;height:1em;vertical-align:-.12em;color:var(--brand)}
+.notif .ic svg{width:20px;height:20px}
+.paid{color:var(--brand);font-weight:700;display:inline-flex;align-items:center;gap:4px}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7}
 .wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 header{padding-block:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -26,9 +33,8 @@ header{padding-block:18px;display:flex;align-items:center;justify-content:space-
 .badge{font-size:12px;font-weight:700;background:var(--note);color:var(--note-ink);padding:3px 10px;border-radius:99px}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:28px 48px}
 .hero > div{min-width:0}
-.eyebrow{font-weight:700;color:var(--brand);font-size:14px;letter-spacing:.08em}
 h1{font-size:clamp(34px,8vw,56px);font-weight:900;line-height:1.2;margin:10px 0 16px;text-wrap:balance}
-h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--note) 62%);color:inherit}
+h1 em{font-style:normal;color:inherit;text-decoration:underline;text-decoration-color:var(--note);text-decoration-thickness:.16em;text-underline-offset:.14em;text-decoration-skip-ink:none}
 .sub{font-size:18px;color:var(--muted);max-width:30em;margin:0}
 .cta{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:18px;background:var(--brand);color:var(--brand-ink);padding:15px 26px;border-radius:12px;margin-top:26px;display:inline-flex;align-items:center;gap:10px;transition:transform .12s ease}
 .cta:hover{transform:translateY(-1px)}
@@ -55,11 +61,10 @@ h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--note) 6
 .bar span{display:block;height:100%;width:25%;background:var(--brand);border-radius:99px}
 .prog .lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
 /* promises */
-.points{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-block:8px 48px}
-.pt{background:var(--surface);border-radius:14px;padding:20px;border:1px solid var(--line)}
-.pt .no{font-family:var(--mono);color:var(--brand);font-weight:600;font-size:14px}
-.pt h4{margin:6px 0 6px;font-size:18px}
-.pt p{margin:0;color:var(--muted);font-size:15px}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 36px;padding-block:8px 56px}
+.pt{border-top:1px solid var(--line);padding-top:18px}
+.pt h2{margin:0 0 6px;font-size:18px;line-height:1.4}
+.pt p{margin:0;color:var(--muted);font-size:15px;max-width:28em}
 .trust{background:var(--brand);color:var(--brand-ink);border-radius:18px;padding:26px;margin-bottom:40px}
 .trust h2{margin:0 0 12px;font-size:22px}
 .trust ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -70,10 +75,11 @@ h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--note) 6
 footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;color:var(--muted)}
 /* sheet */
 .scrim{position:fixed;inset:0;background:rgba(5,20,16,.55);display:grid;align-items:end;justify-items:center;z-index:20;padding-top:env(safe-area-inset-top,0px)}
-.sheet{background:var(--surface);color:var(--ink);width:100%;max-width:520px;max-height:92vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:22px max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+.sheet{background:var(--surface);color:var(--ink);width:100%;max-width:520px;max-height:92vh;overflow-y:auto;border-radius:20px 20px 0 0;padding-top:24px;padding-right:max(20px,env(safe-area-inset-right,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px))}
 @media (min-width:640px){.scrim{align-items:center}.sheet{border-radius:20px}}
 .sheet h2{margin:0;font-size:22px}
-.sheet .x{float:right;appearance:none;border:0;background:var(--soft);color:var(--ink);width:34px;height:34px;border-radius:99px;font-size:18px;cursor:pointer}
+.sheet .x{float:right;appearance:none;border:0;background:var(--soft);color:var(--ink);width:36px;height:36px;border-radius:99px;cursor:pointer;display:grid;place-items:center}
+.sheet .x svg{width:16px;height:16px}
 .q{margin-top:18px}
 .q > span{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -87,7 +93,8 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
 .err{color:#c0392b;font-size:14px;margin-top:10px;min-height:1em}
 .sheet .cta{width:100%;justify-content:center;margin-top:14px}
 .done{text-align:center;padding-block:20px}
-.done .big{font-size:44px}
+.done .big{width:56px;height:56px;border-radius:99px;background:var(--soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 8px}
+.done .big svg{width:28px;height:28px}
 /* review bar (internal only, #review) */
 .review{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--note);color:var(--note-ink);font-size:14px;display:flex;gap:10px;align-items:center;justify-content:center;padding:8px 16px;flex-wrap:wrap}
 .review button{font:inherit;font-weight:700;border:1px solid var(--note-ink);background:transparent;color:inherit;border-radius:99px;padding:3px 12px;cursor:pointer}
@@ -116,14 +123,13 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   <!-- Variant A: borrower-initiated proposal -->
   <section class="hero" data-variant="a">
     <div>
-      <div class="eyebrow">要向朋友借錢？</div>
       <h1>開口借錢，<br>用<em>誠意</em>講好數。</h1>
       <p class="sub">寫低借幾多、用嚟做咩、幾時還，整一份借錢提案發畀朋友。佢睇得清楚，借得安心；你亦唔使吞吞吐吐。</p>
-      <button class="cta" type="button" data-cta>整一份借錢提案 →</button>
+      <button class="cta" type="button" data-cta><span>整一份借錢提案</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
       <div class="fine">免費 · 唔經手你啲錢 · 唔收利息</div>
     </div>
     <div class="card" aria-label="借錢提案示例">
-      <div class="top"><span>借錢提案（示例）</span><span>阿傑 → 阿明</span></div>
+      <div class="top"><span>借錢提案（示例）</span><span>阿傑問阿明借</span></div>
       <div class="amt">HK$8,000</div>
       <div class="rows">
         <div class="row"><b>用途</b><span>新屋按金，下個月出糧前周轉</span></div>
@@ -138,10 +144,9 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   <!-- Variant B: lender-side reminder -->
   <section class="hero" data-variant="b" hidden>
     <div>
-      <div class="eyebrow">朋友欠你錢？</div>
       <h1>朋友欠錢，<br><em>唔使你</em>做醜人。</h1>
       <p class="sub">借之前一齊講好還款日期，到期由講好數溫馨提醒對方。你唔使開口追，友情都唔使賭。</p>
-      <button class="cta" type="button" data-cta>記低邊個欠我錢 →</button>
+      <button class="cta" type="button" data-cta><span>記低邊個欠我錢</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
       <div class="fine">免費 · 唔經手你啲錢 · 唔收利息</div>
     </div>
     <div class="card" aria-label="還款提醒示例">
@@ -162,14 +167,13 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   <!-- Variant C: playful friend contract + check-in -->
   <section class="hero" data-variant="c" hidden>
     <div>
-      <div class="eyebrow">借錢畀朋友？</div>
       <h1>一份<em>搞笑</em>合約，<br>友情同錢都保住。</h1>
       <p class="sub">借錢嗰陣一齊簽一份朋友版合約：遲還就叫你大佬、請你食飯。借方每星期 check-in 報平安，唔會突然消失。</p>
-      <button class="cta" type="button" data-cta>簽一份朋友合約 →</button>
+      <button class="cta" type="button" data-cta><span>簽一份朋友合約</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
       <div class="fine">免費 · 唔經手你啲錢 · 唔收利息</div>
     </div>
     <div class="card" aria-label="朋友合約示例">
-      <div class="top"><span>朋友合約（示例）</span><span>阿明 × 阿傑</span></div>
+      <div class="top"><span>朋友合約（示例）</span><span>阿明同阿傑</span></div>
       <div class="amt">HK$8,000</div>
       <div class="rows">
         <div class="row"><b>逾期一日</b><span>叫阿明一聲「大佬」</span></div>
@@ -177,7 +181,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
         <div class="row"><b>每星期日</b><span>阿傑 check-in 報平安</span></div>
       </div>
       <div class="notif" style="margin-top:14px">
-        <div class="ic">✓</div>
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></div>
         <p><b>阿傑今日 check-in 咗</b><br>「仲喺度，下期照還」<br><small>已連續 6 星期 check-in</small></p>
       </div>
       <div class="btns"><span class="y">簽名</span><span class="n">改條款</span></div>
@@ -187,10 +191,9 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   <!-- Variant D: group expense splitting entry -->
   <section class="hero" data-variant="d" hidden>
     <div>
-      <div class="eyebrow">成日幫朋友墊錢？</div>
       <h1>夾錢墊錢，<br><em>一撳</em>就計清。</h1>
       <p class="sub">食飯、送禮、代買飛，講好數幫你分好數，連埋轉數快連結發畀朋友。唔使再喺 WhatsApp 一個個追。</p>
-      <button class="cta" type="button" data-cta>開一單夾錢 →</button>
+      <button class="cta" type="button" data-cta><span>開一單夾錢</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
       <div class="fine">免費 · 唔經手你啲錢 · 唔收手續費</div>
     </div>
     <div class="card" aria-label="夾錢示例">
@@ -198,8 +201,8 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
       <div class="amt">HK$1,840</div>
       <div class="rows">
         <div class="row"><b>分法</b><span>4 人，每人 HK$460</span></div>
-        <div class="row"><b>阿明</b><span>已還 ✓</span></div>
-        <div class="row"><b>阿傑</b><span>已還 ✓</span></div>
+        <div class="row"><b>阿明</b><span class="paid"><svg class="chk" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>已還</span></div>
+        <div class="row"><b>阿傑</b><span class="paid"><svg class="chk" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>已還</span></div>
         <div class="row"><b>阿詩</b><span>未還 · 今朝已提醒</span></div>
       </div>
       <div class="btns"><span class="y">用轉數快收</span><span class="n">再提一次</span></div>
@@ -207,18 +210,18 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
   </section>
 
   <section class="points">
-    <div class="pt" data-variant="a"><div class="no">01</div><h4>講清楚先開口</h4><p>金額、用途、還款計劃一次過寫低，朋友唔使估，你都唔使尷尬。</p></div>
-    <div class="pt" data-variant="a"><div class="no">02</div><h4>自己設定提醒</h4><p>由你決定幾時提自己還錢，守信由自己做起，唔使朋友追。</p></div>
-    <div class="pt" data-variant="a"><div class="no">03</div><h4>還款雙方確認</h4><p>每還一期，雙方都撳一下確認，邊個都唔會記錯數。</p></div>
-    <div class="pt" data-variant="b" hidden><div class="no">01</div><h4>講好咗先借</h4><p>借之前一齊定好金額同還款日，借定送都講明，唔會有灰色地帶。</p></div>
-    <div class="pt" data-variant="b" hidden><div class="no">02</div><h4>到期自動提醒</h4><p>由講好數用溫和語氣提對方，你唔使親自開口。</p></div>
-    <div class="pt" data-variant="b" hidden><div class="no">03</div><h4>還幾多記幾多</h4><p>每期還款雙方確認，進度一目了然，唔使翻 WhatsApp 對數。</p></div>
-    <div class="pt" data-variant="c" hidden><div class="no">01</div><h4>朋友語氣嘅條款</h4><p>唔使律師字眼，後果由你哋自己定：請食飯、叫大佬、幫手搬屋都得。</p></div>
-    <div class="pt" data-variant="c" hidden><div class="no">02</div><h4>每星期報平安</h4><p>借方撳一下 check-in，話你知佢仲喺度。連續冇 check-in，就會私下通知你。</p></div>
-    <div class="pt" data-variant="c" hidden><div class="no">03</div><h4>還清一齊慶祝</h4><p>每期還款雙方確認；還清嗰日，出一張「準時還清」證書畀你哋分享。</p></div>
-    <div class="pt" data-variant="d" hidden><div class="no">01</div><h4>一撳分好數</h4><p>平均分、按項目分、有人請客都得，即刻計清每人要畀幾多。</p></div>
-    <div class="pt" data-variant="d" hidden><div class="no">02</div><h4>附轉數快連結</h4><p>朋友撳一下就畀到錢，唔使問你電話號碼，亦唔使自己計數。</p></div>
-    <div class="pt" data-variant="d" hidden><div class="no">03</div><h4>代你提醒</h4><p>邊個未畀錢，由講好數溫和咁提佢，你唔使喺群組度追。</p></div>
+    <div class="pt" data-variant="a"><h2>講清楚先開口</h2><p>金額、用途、還款計劃一次過寫低，朋友唔使估，你都唔使尷尬。</p></div>
+    <div class="pt" data-variant="a"><h2>自己設定提醒</h2><p>由你決定幾時提自己還錢，守信由自己做起，唔使朋友追。</p></div>
+    <div class="pt" data-variant="a"><h2>還款雙方確認</h2><p>每還一期，雙方都撳一下確認，邊個都唔會記錯數。</p></div>
+    <div class="pt" data-variant="b" hidden><h2>講好咗先借</h2><p>借之前一齊定好金額同還款日，借定送都講明，唔會有灰色地帶。</p></div>
+    <div class="pt" data-variant="b" hidden><h2>到期自動提醒</h2><p>由講好數用溫和語氣提對方，你唔使親自開口。</p></div>
+    <div class="pt" data-variant="b" hidden><h2>還幾多記幾多</h2><p>每期還款雙方確認，進度一目了然，唔使翻 WhatsApp 對數。</p></div>
+    <div class="pt" data-variant="c" hidden><h2>朋友語氣嘅條款</h2><p>唔使律師字眼，後果由你哋自己定：請食飯、叫大佬、幫手搬屋都得。</p></div>
+    <div class="pt" data-variant="c" hidden><h2>每星期報平安</h2><p>借方撳一下 check-in，話你知佢仲喺度。連續冇 check-in，就會私下通知你。</p></div>
+    <div class="pt" data-variant="c" hidden><h2>還清一齊慶祝</h2><p>每期還款雙方確認；還清嗰日，出一張「準時還清」證書畀你哋分享。</p></div>
+    <div class="pt" data-variant="d" hidden><h2>一撳分好數</h2><p>平均分、按項目分、有人請客都得，即刻計清每人要畀幾多。</p></div>
+    <div class="pt" data-variant="d" hidden><h2>附轉數快連結</h2><p>朋友撳一下就畀到錢，唔使問你電話號碼，亦唔使自己計數。</p></div>
+    <div class="pt" data-variant="d" hidden><h2>代你提醒</h2><p>邊個未畀錢，由講好數溫和咁提佢，你唔使喺群組度追。</p></div>
   </section>
 
   <section class="trust">
@@ -235,7 +238,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
     <h2 data-variant="b" hidden>借錢畀朋友，都可以安心。</h2>
     <h2 data-variant="c" hidden>借錢，都可以借得好玩啲。</h2>
     <h2 data-variant="d" hidden>夾錢，唔再尷尬。</h2>
-    <button class="cta" type="button" data-cta id="cta2">整一份借錢提案 →</button>
+    <button class="cta" type="button" data-cta id="cta2"><span id="cta2t">整一份借錢提案</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
   </section>
 
   <footer>© 講好數 · 產品開發中，暫未推出。登記資料只用嚟通知試用同做產品研究。</footer>
@@ -243,7 +246,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
 
 <div class="scrim" id="scrim" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
-    <button class="x" type="button" id="close" aria-label="關閉">×</button>
+    <button class="x" type="button" id="close" aria-label="關閉"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
     <form id="form" novalidate>
       <h2 id="shTitle">多謝你有興趣！</h2>
       <p style="color:var(--muted);margin:6px 0 0">講好數仲開發緊，未正式推出。留低聯絡，第一批試用就搵你。</p>
@@ -273,7 +276,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;c
       <button class="cta" type="submit" id="submit">登記搶先試</button>
     </form>
     <div class="done" id="done" hidden>
-      <div class="big">🤝</div>
+      <div class="big"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg></div>
       <h2>登記好咗！</h2>
       <p style="color:var(--muted)">推出試用版嘅時候，我哋會第一時間通知你。</p>
       <button class="cta" type="button" id="close2">返回</button>
@@ -292,7 +295,7 @@ const FORM = {
 
 const VARIANTS = ["a", "b", "c", "d"];
 const LABEL = { a: "A 版", b: "B 版", c: "C 版", d: "D 版" };
-const CTA_TEXT = { a: "整一份借錢提案 →", b: "記低邊個欠我錢 →", c: "簽一份朋友合約 →", d: "開一單夾錢 →" };
+const CTA_TEXT = { a: "整一份借錢提案", b: "記低邊個欠我錢", c: "簽一份朋友合約", d: "開一單夾錢" };
 let variant = pickVariant();
 let clicked = false;
 
@@ -306,7 +309,7 @@ function pickVariant(){
 }
 function applyVariant(){
   document.querySelectorAll("[data-variant]").forEach(el => { el.hidden = el.dataset.variant !== variant; });
-  document.getElementById("cta2").textContent = CTA_TEXT[variant];
+  document.getElementById("cta2t").textContent = CTA_TEXT[variant];
   document.getElementById("rvName").textContent = LABEL[variant];
   document.querySelectorAll("#review button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === variant)));
 }
